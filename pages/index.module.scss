@@ -1,0 +1,31 @@
+@import "./styles/mixins.scss";
+
+.container {
+  justify-content: center;
+}
+
+.top_container {
+  background-image: url("/images/top_image4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.bottom_container {
+  background-color: var(--black);
+  height: 100%
+}
+
+.comming_soon_container {
+  position: absolute;
+  top: 595px;
+  z-index: 1;
+  padding-left: 10%;
+  max-width: 95%;
+  overflow: hidden;
+}
+

@@ -1,0 +1,30 @@
+.container {
+  width: 500px;
+  color: var(--white);
+}
+.info_container{
+  max-width: 400px;
+  .first_title {
+    font-family: "Montserrat";
+    font-size: 25px;
+    display: block;
+  }
+  .second_title {
+    font-size: 110px;
+    font-weight: 700;
+    font-family: "Roboto Slab";
+    line-height: 0.9;
+  }
+}
+
+.little_title {
+  display: block;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.buttons_container {
+  display: flex;
+  padding: 20px 0px;
+  justify-content: space-between;
+}
