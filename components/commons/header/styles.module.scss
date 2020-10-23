@@ -1,9 +1,12 @@
+@import "../../../pages/styles/mixins.scss";
+
 .header_container {
   position: absolute;
   top: 10px;
   z-index: 1;
   width: 100%;
   padding-left: 11%;
+  padding-right: 11%;
   color: white;
 }
 .secondary_nav {
@@ -11,7 +14,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  right: 5%;
+  right: 22%;
   top: 8%;
   cursor: pointer;
 }
@@ -22,6 +25,8 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  width: fit-content;
+  font-size: 14px;
 }
 
 .container_li {
@@ -50,12 +55,12 @@
 }
 
 .new_list:hover {
-  width: 185px;
+  width: 170px;
   border-radius: 20px;
   justify-content: space-between;
-  :last-child{
-      opacity: 1;
-      visibility: visible;
+  :last-child {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -79,3 +84,104 @@
   visibility: hidden;
   transition: visibility 0s, opacity 0.5s linear;
 }
+
+.new_notification_alert {
+  background-color: red;
+  width: 5px;
+  border-radius: 100%;
+  height: 5px;
+  position: absolute;
+  top: 17px;
+  right: 70px;
+}
+
+@include media(xlg) {
+  .ul_container {
+    font-size: 13px;
+    .new_list {
+      height: 37px;
+      width: 37px;
+    }
+    .new_list:hover {
+      width: 165px;
+    }
+    .add_movie_img {
+      left: 9px;
+      width: 17px;
+    }
+    .logo {
+      width: 77px;
+    }
+  }
+}
+
+@include media(lg) {
+  .ul_container {
+    font-size: 11.5px;
+    .new_list {
+      height: 35px;
+      width: 35px;
+    }
+    .new_list:hover {
+      width: 160px;
+    }
+    .add_movie_img {
+      left: 9px;
+      width: 15px;
+    }
+    .logo {
+      width: 75px;
+    }
+  }
+
+  .secondary_nav{
+    .text_children_container{
+      font-size: 14px;
+    }
+  }
+
+}
+
+
+@include media(md) {
+  .ul_container {
+    font-size: 11px;
+    .new_list {
+      height: 30px;
+      width: 30px;
+    }
+    .new_list:hover {
+      width: 140px;
+    }
+    .add_movie_img {
+      left: 9px;
+      width: 15px;
+    }
+    .add_movie_txt{
+      font-size: 10px;
+    }
+    .logo {
+      width: 70px;
+    }
+  }
+
+  .secondary_nav{
+    .text_children_container{
+      font-size: 12px;
+    }
+  }
+
+}
+
+
+@media (max-width:935px){
+  .ul_container{
+    li:first-child{
+      padding-top: 20%;
+    }
+    li:nth-last-child(-n+6){
+      display: none;
+    }
+  }
+}
+

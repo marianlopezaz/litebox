@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.collapse_container {
+  background-color: white;
+  border-radius: 5px;
+  width: 130px;
+  height: 218px;
+  position: absolute;
+  top: 45px;
+  right: 10px;
+}
+
+.top_adornment {
+  position: absolute;
+  background-color: white;
+  border-radius: 100%;
+  width: 14px;
+  height: 8px;
+  right: 22px;
+  top: -4px;
+}
+
+.users_list,
+.config_list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  padding: 0px;
+  padding-top: 10px;
+  margin: auto;
+}
+
+.users_list_item {
+  margin-bottom: 10px;
+  width: 111px;
+  height: 37px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.users_list_item:hover {
+  -webkit-box-shadow: -1px 5px 15px 1px rgba(207, 207, 207, 1);
+  -moz-box-shadow: -1px 5px 15px 1px rgba(207, 207, 207, 1);
+  box-shadow: -1px 5px 15px 1px rgba(207, 207, 207, 1);
+  padding: 10px;
+  border-radius: 40px;
+}
+
+.users_list_text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  padding-left: 3px;
+}
+
+.config_list {
+  margin: auto;
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
+  :last-child{
+    border: none;
+    font-weight: 700;
+  }
+}
+.config_list_item {
+  cursor: pointer;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #cccccc;
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
