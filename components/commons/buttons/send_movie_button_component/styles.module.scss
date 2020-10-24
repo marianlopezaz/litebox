@@ -1,0 +1,13 @@
+.button_container{
+    padding: 20px;
+    width: 350px;
+    border-radius: 40px;
+    background: #dedede;
+    color: white;
+    transition: all .4s;
+}
+
+.button_container:hover{
+    background: var(--black);
+    opacity: 0.9;
+}

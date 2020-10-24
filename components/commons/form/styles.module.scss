@@ -1,3 +1,15 @@
 .errors_styles {
   color: var(--error) !important;
 }
+
+.label_text{
+  font-size: 12px;
+    color: #9b9b9b;
+    font-weight: 600;
+    width: 100%;
+    justify-content: left;
+    display: flex;
+    align-items: center;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+}

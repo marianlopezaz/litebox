@@ -1,8 +1,9 @@
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import styles from './styles.module.scss';
 import { useState } from 'react';
-import { Collapse } from '@material-ui/core';
 import LiteflixAvatar from '../../liteflix_avatar_component/liteflix_avatar_component';
+import { Collapse } from '@material-ui/core';
 
 const svgStyle = {
     position: 'absolute',
@@ -21,7 +22,9 @@ const ProfileMenu = () => {
         <>
             <div className={styles.container} onClick={handleMoreOptions}>
                 <LiteflixAvatar iconColor='#4a90e2' iconWidth={15} />
-                <KeyboardArrowDownIcon style={{ color: 'var(--white)' }} />
+                {!moreOptions ?
+                    <KeyboardArrowDownIcon style={{ color: 'var(--white)' }} /> :
+                    <KeyboardArrowUpIcon style={{ color: 'var(--white)' }} />}
             </div>
 
             <Collapse in={moreOptions} className={styles.collapse_container}>

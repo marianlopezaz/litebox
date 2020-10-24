@@ -2,7 +2,7 @@
 @import "./mixins.scss";
 // Css Variables
 :root {
-  --main-color: #7a00f9;
+  --main-color: #0076ff;
   --error: rgb(182, 60, 47);
   --black: rgb(20, 20, 20);
   --white: rgb(243, 243, 243);
@@ -34,13 +34,12 @@ body {
 }
 /* General Modal Styles */
 .close_modal {
-  width: 40px;
+  width: 35px;
   position: absolute;
   top: 10px;
   right: 10px;
   cursor: pointer;
   z-index: 10;
-  background-color: #00000028;
   border-radius: 100%;
   padding: 10px;
 }
@@ -50,6 +49,12 @@ body {
     font-family: $font;
   }
 }
+
+.MuiDialog-paperWidthLg{
+  width: 730px;
+  border-radius: 10px;
+}
+
 /* General form styles */
 .inputs-container {
   margin-top: 20px;
@@ -196,6 +201,12 @@ body {
   background: #555; 
 } 
 
+button{
+  border: none;
+}
+button:focus{
+  outline: none;
+}
 
 @include media(md) {
   /* Modales fullscreen comunes */

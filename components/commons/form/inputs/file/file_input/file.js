@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React, { createRef } from "react";
 
 // Import dependencies
@@ -23,7 +24,11 @@ const InputFile = ({ onFilesAdded, input }) => {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ scale: 0.95, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       <div
         className={styles.drop_zone}
         style={
@@ -33,23 +38,10 @@ const InputFile = ({ onFilesAdded, input }) => {
         }
         onClick={!input.fileAreaDisabled ? openFileDialog : undefined}
       >
-        {input.fileAreaIcon}
-        {input.fileAreaTitle && (
-          <p
-            style={{ fontSize: input.fileAreaTitle.size }}
-            className={styles.input_title}
-          >
-            {input.fileAreaTitle.text}
-          </p>
-        )}
-        {input.fileAreaDescription && (
-          <p
-            className={styles.input_description}
-            style={{ fontSize: input.fileAreaDescription.size }}
-          >
-            {input.fileAreaDescription.text}
-          </p>
-        )}
+        <span className={styles.text_container}>
+          <span> <img src='/images/clip.svg' className={styles.clip_image}/> <span className={styles.bold_text}>Agregar archivo </span> o arrastrarlo y soltarlo aquí </span> 
+        </span>
+        
         <input
           ref={inputRef}
           className={styles.file_input}
@@ -57,9 +49,10 @@ const InputFile = ({ onFilesAdded, input }) => {
           multiple={!!input.fileAcceptMultiple}
           onChange={uploadFile}
           accept={input.fileType ? input.fileType : "image/*"}
+          onClick={(e) => { e.target.value = null }}
         />
       </div>
-    </>
+    </motion.div>
   );
 };
 

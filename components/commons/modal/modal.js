@@ -45,7 +45,7 @@ const Modal = ({ title, body, button, disableBackdrop }) => {
         open={show}
         onClose={!disableBackdrop ? handleVisibilityModal : null}
         fullScreen={fullScreen}
-        maxWidth="sm"
+        maxWidth="lg"
         className="responsive_modal center"
         TransitionComponent={Transition}
       >

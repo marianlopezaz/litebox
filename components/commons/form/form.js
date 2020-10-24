@@ -94,7 +94,7 @@ const Form = ({
     } else if (type !== "select") {
       setValidations({
         ...validations,
-        [name]: !(value.split("").length > 0),
+        [name]: !(value.trim("").length > 0),
       });
     }
   };
@@ -138,9 +138,7 @@ const Form = ({
       });
       setState({ ...state, [name]: newFiles });
     } else {
-      let previewEl = document.getElementById(`${name}_img_preview`);
-      previewEl.src = window.URL.createObjectURL(files[0]);
-      setState({ ...state, [name]: files[0] });
+      setState({ ...state, [name]: [files[0]] });
     }
   };
 
@@ -153,6 +151,11 @@ const Form = ({
     });
   };
 
+  const handleDeleteFile = (file) => {
+    const newFiles = [...state['media']].filter((selectedFile) => { return selectedFile.name !== file.name })
+    setState({ ...state, media: newFiles });
+  }
+
   return (
     <Row lg={12} md={12} sm={12} xs={12}>
       <Col lg={11} md={11} sm={11} xs={11} className="margin-center">
@@ -162,53 +165,61 @@ const Form = ({
               !input.hidden && (
                 <Col
                   key={key}
-                  lg={12}
-                  md={12}
-                  sm={12}
-                  xs={12}
+                  lg={key === 0 ? 12 : 6}
+                  md={key === 0 ? 12 : 6}
+                  sm={key === 0 ? 12 : 6}
+                  xs={key === 0 ? 12 : 6}
                   className="inputs-container"
                 >
                   <FormControl
                     variant={input.variant ? input.variant : "standard"}
                   >
+                    {input.label && <span className={styles.label_text}>{input.label.toUpperCase()}</span>}
                     {input.type !== "date" &&
-                    input.type !== "time" &&
-                    input.type !== "datetime" &&
-                    input.type !== "file" ? (
-                      <TextFieldInput
-                        input={input}
-                        state={state}
-                        validations={validations}
-                        passwordsVisibilities={passwordsVisibilities}
-                        handleChange={handleChange}
-                        handleClickShowPassword={handleClickShowPassword}
-                      />
-                    ) : input.type === "date" ? (
-                      <DateInput
-                        input={input}
-                        handleChangeDate={handleChangeDate}
-                        dates={dates}
-                      />
-                    ) : input.type === "time" ? (
-                      <TimeInput
-                        input={input}
-                        handleChangeDate={handleChangeDate}
-                        dates={dates}
-                      />
-                    ) : input.type === "datetime" ? (
-                      <DateTimeInput
-                        input={input}
-                        handleChangeDate={handleChangeDate}
-                        dates={dates}
-                      />
-                    ) : input.type === "file" ? (
-                      <>
-                        <FileInput onFilesAdded={fileAccept} input={input} />
-                        <FilesSelected state={state} input={input} />
-                      </>
-                    ) : (
-                      <div></div>
-                    )}
+                      input.type !== "time" &&
+                      input.type !== "datetime" &&
+                      input.type !== "file" ? (
+                        <TextFieldInput
+                          input={input}
+                          state={state}
+                          validations={validations}
+                          passwordsVisibilities={passwordsVisibilities}
+                          handleChange={handleChange}
+                          handleClickShowPassword={handleClickShowPassword}
+                        />
+                      ) : input.type === "date" ? (
+                        <DateInput
+                          input={input}
+                          handleChangeDate={handleChangeDate}
+                          dates={dates}
+                        />
+                      ) : input.type === "time" ? (
+                        <TimeInput
+                          input={input}
+                          handleChangeDate={handleChangeDate}
+                          dates={dates}
+                        />
+                      ) : input.type === "datetime" ? (
+                        <DateTimeInput
+                          input={input}
+                          handleChangeDate={handleChangeDate}
+                          dates={dates}
+                        />
+                      ) : input.type === "file" ? (
+                        <>
+                          {
+                            !state['media']?.length &&
+                            <FileInput onFilesAdded={fileAccept} input={input} />
+                          }
+
+                          {
+                            state['media'] && !!state['media'].length &&
+                            <FilesSelected state={state} input={input} deleteFile={handleDeleteFile} />
+                          }
+                        </>
+                      ) : (
+                                <div></div>
+                              )}
                     {/* Helpers Space */}
                     {input.helperTexts &&
                       input.helperTexts.length > 0 &&
@@ -217,24 +228,24 @@ const Form = ({
                       ))}
                     {/* Validation Errors Space */}
                     {input.validatable &&
-                    validations &&
-                    validations[input.name] ? (
-                      input.type === "email" ? (
-                        <FormHelperText className={styles.errors_styles}>
-                          Este campo debe tener el formato x@x.x.
-                        </FormHelperText>
-                      ) : input.type === "password" ? (
-                        <FormHelperText className={styles.errors_styles}>
-                          Este campo debe tener más de 8 caracteres.
-                        </FormHelperText>
+                      validations &&
+                      validations[input.name] ? (
+                        input.type === "email" ? (
+                          <FormHelperText className={styles.errors_styles}>
+                            Este campo debe tener el formato x@x.x.
+                          </FormHelperText>
+                        ) : input.type === "password" ? (
+                          <FormHelperText className={styles.errors_styles}>
+                            Este campo debe tener más de 8 caracteres.
+                          </FormHelperText>
+                        ) : (
+                              <FormHelperText className={styles.errors_styles}>
+                                Este campo no puede estar vacío.
+                              </FormHelperText>
+                            )
                       ) : (
-                        <FormHelperText className={styles.errors_styles}>
-                          Este campo no puede estar vacío.
-                        </FormHelperText>
-                      )
-                    ) : (
-                      <div></div>
-                    )}
+                        <div></div>
+                      )}
                   </FormControl>
                 </Col>
               )
@@ -252,20 +263,20 @@ const Form = ({
         {button ? (
           <span onClick={handleSubmitAction}>{button}</span>
         ) : (
-          // Change default button style here
-          <button
-            onClick={handleSubmitAction}
-            style={{
-              border: "none",
-              padding: "10px 20px",
-              borderRadius: 20,
-              backgroundColor: "var(--main-color)",
-              color: "#ffffff",
-            }}
-          >
-            Enviar Form
-          </button>
-        )}
+            // Change default button style here
+            <button
+              onClick={handleSubmitAction}
+              style={{
+                border: "none",
+                padding: "10px 20px",
+                borderRadius: 20,
+                backgroundColor: "var(--main-color)",
+                color: "#ffffff",
+              }}
+            >
+              Enviar Form
+            </button>
+          )}
       </Col>
     </Row>
   );

@@ -1,5 +1,5 @@
 // Change this on main color change
-$main_color: #7a00f9;
+$main_color: #0076ff;
 .preview_photo {
   margin: 10px 0px;
   border: 3px solid lighten($color: $main_color, $amount: 45);
@@ -34,6 +34,18 @@ $main_color: #7a00f9;
           text-overflow: ellipsis;
         }
       }
+    }
+    .delete_container {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
     }
   }
 }

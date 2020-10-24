@@ -10,8 +10,8 @@ const CommingSoonHoverComponent = () => {
             className={styles.container}>
 
             <div className={styles.button_container}>
-                <img src="/images/play.svg" className={`${styles.image} ${styles.play_image}`} />
-                <img src="/images/play.svg" className={styles.image} />
+                <img src="/images/add-list.svg" className={`${styles.image} ${styles.play_image}`} />
+                <img src="/images/ok.svg" className={styles.image} />
             </div>
             <div className={styles.play_button_container}>
                 <img src="/images/play.svg" className={styles.middle_image} />

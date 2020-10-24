@@ -45,28 +45,6 @@
   text-decoration: none;
 }
 
-.new_list {
-  background: red;
-  border-radius: 20px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.5s;
-  position: relative;
-}
-
-.new_list:hover {
-  width: 170px;
-  border-radius: 20px;
-  justify-content: space-between;
-  :last-child {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
 .profile_container {
   display: flex;
   justify-content: space-between;

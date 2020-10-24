@@ -18,7 +18,6 @@ const Textfield = ({
     <TextField
       id={input.name}
       name={input.name}
-      label={input.label}
       variant={input.variant}
       type={
         input.type !== "password"

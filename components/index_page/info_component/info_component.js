@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap";
-import ButtonLiteflix from "../../commons/buttonComponent/buttonComponent";
+import ButtonLiteflix from "../../commons/buttons/common_button_component/button_component";
 import styles from './styles.module.scss';
 import AddIcon from '@material-ui/icons/Add';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
