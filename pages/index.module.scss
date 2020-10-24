@@ -1,7 +1,8 @@
 @import "./styles/mixins.scss";
 
 .container {
-  justify-content: center;
+  justify-content: flex-start;
+  display: flex;
 }
 
 .top_container {
@@ -27,9 +28,9 @@
   position: absolute;
   top: 595px;
   z-index: 1;
-  padding-left: 10%;
-  padding-right: 10%;
-  max-width: 98%;
   overflow: hidden;
+  padding: unset;
+  margin-left: 9%;
+  width: 80.5%;
+  padding-left: 10px;
 }
-

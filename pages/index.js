@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Row lg={12} md={12} sm={12} xs={12} className={styles.top_container}>
-        <Col lg={12} md={12} sm={12} xs={12} >
+        <Col lg={12} md={12} sm={12} xs={12} className={styles.container}>
           <InfoComponent />
         </Col>
       </Row>
