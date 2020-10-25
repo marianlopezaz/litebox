@@ -1,25 +1,27 @@
 .container {
   background: rgba(0, 0, 0, 0.8);
-  min-width: 255px;
-  max-width: 255px;
   border-radius: 5px;
-  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .button_container {
   justify-content: flex-end;
   display: flex;
+  height: 100%;
 }
 .play_button_container {
   justify-content: center;
   display: flex;
+  height: 100%;
 }
 
 .image {
   padding: 5px;
   width: 40px;
-  margin-right: 10px;
-  margin-top: 10px;
 }
 .play_image {
   margin-right: unset;
@@ -37,6 +39,7 @@
   line-height: normal;
   color: white;
   margin-top: -3px;
+  height: 100%;
   .title {
     font-size: 16px;
     font-weight: 700;

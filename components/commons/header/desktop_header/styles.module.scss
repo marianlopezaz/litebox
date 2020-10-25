@@ -1,0 +1,15 @@
+@import "../../../../pages/styles/mixins.scss";
+
+.header_container {
+  position: absolute;
+  top: 10px;
+  z-index: 1;
+  color: white;
+  padding: unset;
+  margin-left: 9.8%;
+  width: 80.5%;
+  padding-left: 10px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+}

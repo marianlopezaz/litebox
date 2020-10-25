@@ -5,11 +5,6 @@ import { useState } from 'react';
 import LiteflixAvatar from '../../liteflix_avatar_component/liteflix_avatar_component';
 import { Collapse } from '@material-ui/core';
 
-const svgStyle = {
-    position: 'absolute',
-    right: '-13px'
-}
-
 const ProfileMenu = () => {
 
     const [moreOptions, setMoreOptions] = useState();
