@@ -12,20 +12,22 @@ const PopularMoviesHoverComponent = () => {
             <div className={styles.play_button_container}>
                 <img src="/images/play.svg" className={styles.middle_image} />
             </div>
-            <div className={styles.bottom_container}>
+            <div className={styles.info_container}>
                 <div>
                     <span className={styles.title}>Black Mirror</span>
                     <span className={styles.description}>98% de coincidencia</span>
                     <span className={styles.description}><span className={styles.movie_year}>+16 </span> 1h 30 min</span>
                     <span className={styles.movie_type}>Suspenso</span>
                 </div>
-                <div className={styles.bottom_container__image}>
+                <div className={styles.info_container__image}>
                     <img src="/images/ok.svg" className={`${styles.image} ${styles.play_image}`} />
                 </div>
-                <div className={styles.bottom_container__arrow_image}>
+                
+            </div>
+
+            <div className={styles.arrow_image_container}>
                     <img src="/images/arrow.svg" className={`${styles.image} ${styles.play_image}`} />
                 </div>
-            </div>
         </motion.div>
     )
 }

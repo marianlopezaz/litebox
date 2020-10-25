@@ -22,12 +22,22 @@
   padding-left: 10%;
   padding-right: 10%;
 }
-.bottom_container {
+
+.comming_soon_mobile,
+.popular_movies_container {
   background-color: var(--black);
   padding-left: 10%;
   padding-right: 10%;
 }
+.comming_soon_mobile {
+  margin: -1px auto;
+  display: flex;
+  flex-direction: column;
+}
 
-.popular_movies_container{
-  padding-top: 200px;
+.popular_movies_container {
+  padding-top: 150px;
+}
+.popular_movies_mobile {
+  padding-top: 20px;
 }

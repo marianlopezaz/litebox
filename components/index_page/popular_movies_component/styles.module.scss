@@ -5,14 +5,35 @@
   margin-left: 18px;
   overflow: auto;
 }
+.images_mobile_container{
+  display: grid;
+  grid-template-areas:
+  ". ."
+  ". .";
+  margin-left: 0px;
+}
 
+ 
 .img_container {
   margin: 0px 20px 0px 0px;
-  min-width: 255px;
   border-radius: 5px;
   display: flex;
   align-items: flex-end;
+  position: relative;
   &__movie_image{
     height: 485px;
   }
+}
+.img_mobile_container{
+  min-width: unset;
+  margin: 1px;
+  &__movie_image{
+    height: auto;
+    width: 100%;
+  }
+}
+
+.hover_component_container {
+  position: absolute;
+  width: 100%;
 }

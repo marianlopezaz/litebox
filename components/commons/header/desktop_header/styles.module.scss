@@ -19,6 +19,9 @@
   right: 0px;
   top: 8%;
   cursor: pointer;
+  .text_children_container {
+    font-size: 12px;
+  }
 }
 .ul_container {
   list-style-type: none;
@@ -116,7 +119,7 @@
 
   .secondary_nav {
     .text_children_container {
-      font-size: 14px;
+      font-size: 10px;
     }
   }
 }
