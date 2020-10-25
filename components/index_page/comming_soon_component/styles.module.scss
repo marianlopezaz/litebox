@@ -20,5 +20,9 @@
   min-width: 255px;
   border-radius: 5px;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; 
+  &__movie_image{
+    width: 255px;
+    height: 150px;
+  }
 }

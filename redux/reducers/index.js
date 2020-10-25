@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import userReducer from "../reducers/userReducer";
+import deviceReducer from "./deviceReducer";
 
 export default combineReducers({
-  user: userReducer,
+  device: deviceReducer,
 });

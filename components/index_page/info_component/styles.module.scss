@@ -1,5 +1,9 @@
+@import "../../../pages/styles/mixins.scss";
+
 .container {
-  width: 500px;
+  align-items: center;
+  height: 100%;
+  width: 100%;
   color: var(--white);
 }
 .info_container{
@@ -27,4 +31,22 @@
   display: flex;
   padding: 20px 0px;
   justify-content: space-between;
+  align-items: center;
+  .image{
+    position: absolute;
+    right: 0px;
+  }
 }
+
+@include media(md){
+  .info_container{
+    .first_title {
+      font-size: 18px;
+    }
+    .second_title {
+      font-size: 72px;
+    }
+  }
+
+}
+

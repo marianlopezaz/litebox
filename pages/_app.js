@@ -9,6 +9,7 @@ import DateFnsUtils from "@date-io/date-fns";
 import esLocale from "date-fns/locale/es";
 import NProgress from "nprogress";
 import Router from "next/router";
+
 /* Change the following import to change alerts animation.(Info in README) */
 import "react-s-alert/dist/s-alert-css-effects/stackslide.css";
 
@@ -26,10 +27,19 @@ Router.events.on("routeChangeError", () => NProgress.done());
 import { validateLoginUser } from "../utils/auth";
 import { Col, Row } from "react-bootstrap";
 import Header from "../components/commons/header/header";
+import { isMobile } from 'react-device-detect';
+import { useDispatch } from "react-redux";
+
+
+/* REDUX */
+import * as types from '../redux/types';
 
 function MyApp({ Component, pageProps }) {
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    let authUser = validateLoginUser();
+    dispatch({type: types.INIT_DEVICE, payload: isMobile});
   }, []);
 
   return (
