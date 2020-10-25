@@ -1,0 +1,78 @@
+@import "../../../../../pages/styles/mixins.scss";
+
+.users_list_item {
+  width: 100%;
+  background: #222222;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 40px;
+  align-items: center;
+  .users_list_text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    padding-left: 10px;
+    color: white;
+  }
+}
+
+.config_list,
+.header_list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  width: 100%;
+  margin: auto;
+  font-size: 12px;
+  justify-content: flex-start;
+  padding: 0px;
+  padding-top: 10px;
+  text-align: left;
+  margin-left: -8%;
+  .config_list_item,
+  .header_list_item {
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #222222;
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px 0px;
+    position: relative;
+    .new_notification_alert{
+      position: absolute;
+      background: red;
+      top: 19px;
+      height: 7px;
+      width: 7px;
+      border-radius: 100%;
+      left: 13px;
+    }
+  }
+}
+
+.header_list {
+  .header_list_item {
+    border: none;
+    font-size: 14px;
+  }
+  :last-child {
+    border: none;
+    font-weight: 700;
+  }
+}
+
+
+@include media(xxs){
+  .header_list{
+      #new_movie_li{
+        width: 100%;
+        padding-left: 5%;
+      }
+  }
+}

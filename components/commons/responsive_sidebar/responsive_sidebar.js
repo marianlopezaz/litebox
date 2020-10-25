@@ -7,6 +7,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import MenuIcon from '@material-ui/icons/Menu';
+import styles from './styles.module.scss';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="right" ref={ref} {...props} />;
@@ -28,8 +30,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const ResponsiveSidebar = ({ title, body, button, disableBackdrop }) => {
   const newBody = { ...body };
   const [show, setShow] = useState(false);
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down(992));
 
   const handleVisibilityModal = () => {
     setShow(!show);
@@ -44,17 +44,20 @@ const ResponsiveSidebar = ({ title, body, button, disableBackdrop }) => {
       <Dialog
         open={show}
         onClose={!disableBackdrop ? handleVisibilityModal : null}
-        fullScreen={fullScreen}
+        fullScreen
         maxWidth="lg"
-        className="responsive_modal center"
+        className="responsive_sidebar center"
         TransitionComponent={Transition}
       >
-        <img
+        <div
           onClick={handleVisibilityModal}
-          src="/icons/close.svg"
-          className="close_modal"
-        />
-        <DialogTitle>{title}</DialogTitle>
+          className="close_sidebar"
+        >
+          <MenuIcon className={styles.menu_icon} />
+        </div>
+        <DialogTitle>
+          {title}
+        </DialogTitle>
         <DialogContent>
           <div>{newBody}</div>
         </DialogContent>
