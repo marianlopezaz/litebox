@@ -2,14 +2,24 @@
   color: var(--error) !important;
 }
 
-.label_text{
+.label_text {
   font-size: 12px;
-    color: #9b9b9b;
-    font-weight: 600;
-    width: 100%;
-    justify-content: left;
-    display: flex;
-    align-items: center;
-    letter-spacing: 4px;
-    margin-bottom: 5px;
+  color: #9b9b9b;
+  font-weight: 600;
+  width: 100%;
+  justify-content: left;
+  display: flex;
+  align-items: center;
+  letter-spacing: 4px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 630px) {
+  .label_text {
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 10px;
+  }
 }

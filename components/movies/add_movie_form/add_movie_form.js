@@ -40,7 +40,6 @@ const AddMovieForm = () => {
                     ],
                     name: "select",
                     label: "Categoría",
-                    helperTexts: ["Seleccioná una opción"],
                 },
             ]
             }

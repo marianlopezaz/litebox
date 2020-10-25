@@ -1,10 +1,11 @@
 .button_container{
-    padding: 20px;
-    width: 350px;
+    width: 70%;
     border-radius: 40px;
     background: #dedede;
-    color: white;
+    color: #fff;
     transition: all .4s;
+    max-width: 335px;
+    padding: 20px;
 }
 
 .button_container:hover{
