@@ -43,7 +43,7 @@ const LeftHeaderSection = () => {
                     <span className={styles.item}>Agregados recientemente</span>
                 </li>
                 <li className={styles.container_li}>
-                    <span className={styles.item}>Mi lista</span>
+                    <span className={styles.item}>Mi listaa</span>
                 </li>
                 <li className={styles.container_li} onMouseEnter={handleHover} onMouseLeave={handleHover}>
                     <Modal
