@@ -4,11 +4,11 @@ FROM node:10
 WORKDIR /usr/src/app
 
 # Installing dependencies
-COPY package*.json ./
+ADD package*.json ./
 RUN npm install
 
 # Copying source files
-COPY . .
+ADD . .
 
 # Building app
 RUN npm run build
