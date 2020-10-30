@@ -6,7 +6,6 @@
   height: 100%;
 }
 .top_container {
-  background-image: url("/images/top_image5.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -14,6 +13,7 @@
   padding-bottom: 150px;
   padding-right: 10%;
   padding-left: 10%;
+  background-color: var(--black);
 }
 .comming_soon_container {
   margin: -110px auto;

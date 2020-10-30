@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import styles from './styles.module.scss';
 
-const CommingSoonHoverComponent = () => {
+const CommingSoonHoverComponent = ({movieData}) => {
     return (
         <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
@@ -17,9 +17,9 @@ const CommingSoonHoverComponent = () => {
                 <img src="/images/play.svg" className={styles.middle_image} />
             </div>
             <div className={styles.bottom_container}>
-                <span className={styles.title}>Black Mirror</span>
+                <span className={styles.title}>{movieData.title}</span>
                 <span className={styles.description}>
-                    98% de coincidencia <span className={styles.movie_year}>+16</span> 1h 30 min
+                    98% de coincidencia <span className={styles.movie_year}>{movieData.adult ? '+18' : 'APT'}</span> 1h 30 min
                 </span>
                 <span className={styles.movie_type}>Suspenso</span>
             </div>

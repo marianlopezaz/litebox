@@ -2,7 +2,7 @@ from string import Template
 import os
 import sys
 
-def generate(name):
+def generate(name, page = 'no-page'):
 
 
     #busco ruta base
@@ -39,14 +39,15 @@ def generate(name):
     """ PAGES """
 
     #genero ruta del archivo page y style
-    page_file_path = base_path + '/pages/' + name + '/index.js'
-    style_file_path = base_path + '/pages/' + name + '/styles.module.scss'
+    if page == 'with-page':
+        page_file_path = base_path + '/pages/' + name + '/index.js'
+        style_file_path = base_path + '/pages/' + name + '/styles.module.scss'
 
-    #genero ruta para guardar los archivos de page
-    page_path = base_path + '/pages/' + name
+        #genero ruta para guardar los archivos de page
+        page_path = base_path + '/pages/' + name
 
-    #creo carpeta de pages con sus estilos
-    os.makedirs(page_path)
+        #creo carpeta de pages con sus estilos
+        os.makedirs(page_path)
 
     """ TEMPLATE GENERATOR """
 
@@ -67,18 +68,22 @@ def generate(name):
     service.close()
 
     #creo la página desde plantilla
-    page_template_file = open('automation/page_template.txt')
-    page_template_file = Template(page_template_file.read())
-    page_result = page_template_file.substitute({"name": name,"mayusName":mayusName})
-    page = open(page_file_path, 'w')
-    page.write(page_result)
-    page.close()
-    style = open(style_file_path,'x')
-    style.close()
+    if page == 'with-page':
+        page_template_file = open('automation/page_template.txt')
+        page_template_file = Template(page_template_file.read())
+        page_result = page_template_file.substitute({"name": name,"mayusName":mayusName})
+        page = open(page_file_path, 'w')
+        page.write(page_result)
+        page.close()
+        style = open(style_file_path,'x')
+        style.close()
 
 
 
     #imprimo resultados y rutas
     print('Servicios y Cruds generados con éxtio para: ' + name)
     
-generate(sys.argv[1])
+if len(sys.argv) == 3 :
+    generate(sys.argv[1],sys.argv[2])
+else:
+    generate(sys.argv[1])

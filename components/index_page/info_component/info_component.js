@@ -6,14 +6,14 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-const InfoComponent = ({mobileStyle}) => {
+const InfoComponent = ({mobileStyle, movieData}) => {
 
     return (
         <Row lg={12} md={12} sm={12} xs={12} className={`${styles.container} ${mobileStyle && styles.mobile_container}`}>
 
             <Col lg={12} md={12} sm={12} xs={12} className={`${styles.info_container} ${mobileStyle && styles.mobile_info_container}`}>
                 <span className={styles.first_title}>ORIGINAL DE <strong>LITEFLIX</strong></span>
-                <span className={styles.second_title}>Kids at school</span>
+                <span className={styles.second_title}>{movieData?.title}</span>
                 <Col lg={12} md={12} sm={12} xs={12} className={`${styles.buttons_container} ${mobileStyle && styles.buttons_mobile_container}`}>
                     <ButtonLiteflix btnText="Reproducir" btnIcon={<PlayArrowIcon />} />
                     {mobileStyle ?
@@ -25,9 +25,7 @@ const InfoComponent = ({mobileStyle}) => {
                 <>
                 <span className={styles.little_title}>Ver temporada 1</span>
                 <span>
-                        Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-                        Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
-                        cuando un impresor (N. del T. persona que se dedica a la imprenta).
+                       {movieData?.overview}
                 </span>
                 </>
                 }

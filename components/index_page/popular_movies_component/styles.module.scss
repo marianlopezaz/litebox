@@ -4,6 +4,7 @@
   justify-content: flex-start;
   margin-left: 18px;
   overflow: auto;
+  cursor: pointer;
 }
 .images_mobile_container{
   display: grid;
@@ -21,7 +22,7 @@
   align-items: flex-end;
   position: relative;
   &__movie_image{
-    height: 485px;
+    height: 400px;
   }
 }
 .img_mobile_container{

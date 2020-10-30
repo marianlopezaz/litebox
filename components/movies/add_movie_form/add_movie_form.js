@@ -3,7 +3,6 @@ import Form from '../../commons/form/form';
 
 const AddMovieForm = () => {
     const handleSubmit = async (fields) => { 
-        console.log(fields);
     }
     return (
         <Form

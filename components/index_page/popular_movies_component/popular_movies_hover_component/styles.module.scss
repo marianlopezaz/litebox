@@ -36,30 +36,38 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding-left: 13px;
+  padding: 13px 13px 2px;
   line-height: 18px;
   color: white;
   margin-top: 10px;
-  .title {
-    font-size: 16px;
-    font-weight: 700;
-    display: block;
-  }
-  .description {
-    font-size: 12px;
-    display: block;
-  }
-  .movie_type{
-    display: block;
+  .info{
+    width: 50%;
+    .title {
+      font-size: 16px;
+      font-weight: 700;
       width: 100%;
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .description {
       font-size: 12px;
+      display: block;
+    }
+    .movie_type{
+      display: block;
+        width: 100%;
+        font-size: 12px;
+    }
+    .movie_year{
+      padding: 1px 9px;
+      text-align: center;
+      border-radius: 40px;
+      background: rgba(58, 58, 58, 0.9);
+    }
   }
-  .movie_year{
-    padding: 1px 9px;
-    text-align: center;
-    border-radius: 40px;
-    background: rgba(58, 58, 58, 0.9);
-  }
+
   &__image{
     padding-right: 5px;
   }

@@ -24,7 +24,6 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 /* Functions */
-import { validateLoginUser } from "../utils/auth";
 import { Col, Row } from "react-bootstrap";
 import Header from "../components/commons/header/header";
 import { isMobile } from 'react-device-detect';
