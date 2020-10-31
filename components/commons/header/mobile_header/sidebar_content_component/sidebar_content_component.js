@@ -4,7 +4,6 @@ import AddMovieButtonComponent from '../../../buttons/add_movie_button_component
 import AddMovieForm from '../../../../movies/add_movie_form/add_movie_form';
 import Modal from '../../../modal/modal';
 import { IconButton } from '@material-ui/core';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 
 
 const SidebarContentComponent = () => {

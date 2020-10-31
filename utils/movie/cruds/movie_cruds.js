@@ -2,11 +2,16 @@ import config from '../../config';
 import axios from 'axios';
 import errorHandler from "../../errorhandler";
 
-export async function addMovieCrud(data, auth_token) {
-    return axios.post(`${config.api_url}/`, data, {
-        headers: {
-            Authorization: `Token ${auth_token}`,
-        },
+export async function addMovieCrud(data) {
+    const FORM_DATA = new FormData();
+    FORM_DATA.append('movieName',data.text);
+    FORM_DATA.append('movieImage',data.media[0]);
+    FORM_DATA.append('movieCategory',data.select);
+
+    return axios.post(`${config.api_url}/movies`, FORM_DATA,{
+        headers:{
+            "Content-Type": "multipart/form-data",
+        }
     })
         .then((json) => {
             let response = {

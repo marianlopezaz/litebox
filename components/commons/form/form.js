@@ -17,6 +17,7 @@ import TimeInput from "./inputs/time/time";
 import DateTimeInput from "./inputs/datetime/datetime";
 import FileInput from "./inputs/file/file_input/file";
 import FilesSelected from "./inputs/file/files_selected/files_selected";
+import Alert from "react-s-alert";
 
 // Email regex
 const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -143,6 +144,21 @@ const Form = ({
   };
 
   const handleSubmitAction = () => {
+    if (!state.media || !state.media.length) {
+      return Alert.error('Debes adjuntar una imágen para continuar', {
+        effect: "stackslide",
+      });
+    }
+    if(!state.text){
+      return Alert.error('El nombre de la película es obligatorio', {
+        effect: "stackslide",
+      });
+    }
+    if(!state.select){
+      return Alert.error('La categoría de la película es obligatorio', {
+        effect: "stackslide",
+      });
+    }
     const dataToSend = resultToFormData ? toFormData(state) : state;
     setIsLoading(!isLoading);
     handleSubmit(dataToSend).then(() => {

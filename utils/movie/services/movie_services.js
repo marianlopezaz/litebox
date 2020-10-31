@@ -8,7 +8,6 @@ export async function getMovieService(type) {
 
         } else {
             Alert.error('No se encontraron películas disponibles', {
-                position: "bottom",
                 effect: "stackslide",
             });
         }
@@ -16,16 +15,14 @@ export async function getMovieService(type) {
     })
 }
 
-export async function addMovieService(data, token) {
-    return await addMovieCrud(data, token).then((result) => {
+export async function addMovieService(data) {
+    return await addMovieCrud(data).then((result) => {
         if (result.success) {
-            Alert.success("Movie creado correctamente", {
-                position: "bottom",
+            Alert.success("Película cargada correctamente", {
                 effect: "stackslide",
             });
         } else {
             Alert.error('Ocurrió un error al guardar la película', {
-                position: "bottom",
                 effect: "stackslide",
             });
         }

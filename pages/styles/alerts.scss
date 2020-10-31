@@ -137,33 +137,41 @@
 .s-alert-info {
   background: rgb(0, 120, 156);
   color: #fff;
-  width: 100%;
+  border-radius: 20px;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 15px;
   z-index: 99999;
 }
 .s-alert-success {
-  background: rgb(29, 136, 73);
+  background: rgb(33, 105, 63);
   color: #fff;
-  width: 100%;
+  border-radius: 20px;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 15px;
   z-index: 99999;
 }
 .s-alert-warning {
-  background: rgb(223, 126, 0);
+  background: #e4710fba;
   color: #fff;
-  width: 100%;
+  border-radius: 20px;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 15px;
   z-index: 99999;
 }
 .s-alert-error {
-  background: rgb(182, 60, 47);
+  background: #9c3838;
   color: #fff;
-  width: 100%;
+  border-radius: 20px;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 15px;
   z-index: 99999;
 }
 
