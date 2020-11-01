@@ -1,27 +1,47 @@
+import { LinearProgress } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import { getCategoriesService } from '../../../utils/categories/services/categories_services';
 import { addMovieService } from '../../../utils/movie/services/movie_services';
 import SendMovieButtonComponent from '../../commons/buttons/send_movie_button_component/send_movie_button_component';
 import Form from '../../commons/form/form';
+import SuccessUploadForm from '../success_upload_form/success_upload_form';
+import styles from './styles.module.scss';
 
-const AddMovieForm = () => {
-    const [options,setOptions] = useState([]);
-    const [succesUpload,setSuccessUpload] = useState();
-    const [isLoading,setIsLoading] = useState();
+const AddMovieForm = ({handleClose}) => {
+    const [options, setOptions] = useState([]);
+    const [succesUpload, setSuccessUpload] = useState();
+    const [progress, setProgress] = useState(0);
+    const [isLoading, setIsLoading] = useState();
+    const [uploadedMovie, setUploadedMovie] = useState();
 
-    const handleSubmit = async (fields) => { 
+    const handleSubmit = async (fields) => {
+        setProgress(progress + 10);
         setIsLoading(true);
-        addMovieService(fields).then((result)=>{
-        setIsLoading(false);
-        setSuccessUpload(result.success);
+        addMovieService(fields, (event) => {
+            setProgress(Math.round((100 * event.loaded) / event.total));
+        }).then((result) => {
+            setIsLoading(false);
+            handleMovieData(fields);
+            setTimeout(() => {
+                setSuccessUpload(result.success);
+            }, 100);
         });
     }
 
-    useEffect(()=>{
-        getCategoriesService().then((res)=>{
-            if(res.success){
+    const handleMovieData = (fields) =>{
+        const category = options.filter((option)=>{return option.value === fields.select})[0].label;
+        const MOVIE = {
+            category: category,
+            name: fields.text,
+        }
+        console.log(fields);
+        setUploadedMovie(MOVIE)
+    }
+    useEffect(() => {
+        getCategoriesService().then((res) => {
+            if (res.success) {
                 let options = [];
-                res.result.map((option)=>{
+                res.result.map((option) => {
                     const OPTION_DATA = {
                         value: option._id,
                         label: option.name
@@ -30,47 +50,63 @@ const AddMovieForm = () => {
                 })
                 setOptions(options);
             }
-            
+
         })
-    },[]);
+    }, []);
 
     return (
-        <Form
-            inputs={[
-                {
-                    type: "file",
-                    name: "media",
-                    required: true,
-                    fileAreaDisabled: false,
-                    fileAreaIcon: <img src="/logo.svg" style={{ width: 100 }} />,
-                    fileAreaTitle: { text: "Agregar archivo o arrastrarlo y soltarlo aquí", size: 18 },
-                    fileAreaDescription: {
-                        text: "Solo se aceptan archivos jpg, png y svg",
-                        size: 14,
-                    },
-                    fileType: "image/*",
-                    fileAcceptMultiple: false,
-                },
-                {
-                    type: "text",
-                    name: "text",
-                    required: true,
-                    label: "Nombre de la película",
-                    autofocus: true,
-                    validatable: true,
-                },
-                {
-                    type: "select",
-                    required: true,
-                    options: options,
-                    name: "select",
-                    label: "Categoría",
-                },
-            ]
+        <>
+            {
+                succesUpload ? 
+                <SuccessUploadForm movie={uploadedMovie} succesUpload={succesUpload} handleClose={handleClose}/>
+                    :
+                    <>
+                        {
+                            progress > 0 &&
+                            <div className={styles.loader_container}>
+                                <LinearProgress variant="determinate" value={progress} />
+                            </div>
+                        }
+
+                        <Form
+                            inputs={[
+                                {
+                                    type: "file",
+                                    name: "media",
+                                    required: true,
+                                    fileAreaDisabled: false,
+                                    fileAreaIcon: <img src="/logo.svg" style={{ width: 100 }} />,
+                                    fileAreaTitle: { text: "Agregar archivo o arrastrarlo y soltarlo aquí", size: 18 },
+                                    fileAreaDescription: {
+                                        text: "Solo se aceptan archivos jpg, png y svg",
+                                        size: 14,
+                                    },
+                                    fileType: "image/*",
+                                    fileAcceptMultiple: false,
+                                },
+                                {
+                                    type: "text",
+                                    name: "text",
+                                    required: true,
+                                    label: "Nombre de la película",
+                                    autofocus: true,
+                                    validatable: true,
+                                },
+                                {
+                                    type: "select",
+                                    required: true,
+                                    options: options,
+                                    name: "select",
+                                    label: "Categoría",
+                                },
+                            ]
+                            }
+                            button={<SendMovieButtonComponent disabled={isLoading}/>}
+                            handleSubmit={handleSubmit}
+                        />
+                    </>
             }
-            button = {<SendMovieButtonComponent disabled={isLoading} successUpload={succesUpload}/>}
-            handleSubmit = {handleSubmit}
-        />
+        </>
     )
 }
 

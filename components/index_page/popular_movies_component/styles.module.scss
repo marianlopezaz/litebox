@@ -1,10 +1,11 @@
 .images_container {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: auto;
+  min-height: 150px;
+  justify-content: space-between;
   margin-left: 18px;
-  overflow: auto;
-  cursor: pointer;
 }
 .images_mobile_container{
   display: grid;

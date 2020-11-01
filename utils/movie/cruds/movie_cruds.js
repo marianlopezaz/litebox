@@ -2,7 +2,7 @@ import config from '../../config';
 import axios from 'axios';
 import errorHandler from "../../errorhandler";
 
-export async function addMovieCrud(data) {
+export async function addMovieCrud(data, onUploadProgress) {
     const FORM_DATA = new FormData();
     FORM_DATA.append('movieName',data.text);
     FORM_DATA.append('movieImage',data.media[0]);
@@ -11,7 +11,8 @@ export async function addMovieCrud(data) {
     return axios.post(`${config.api_url}/movies`, FORM_DATA,{
         headers:{
             "Content-Type": "multipart/form-data",
-        }
+        },
+        onUploadProgress
     })
         .then((json) => {
             let response = {

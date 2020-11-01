@@ -45,8 +45,7 @@ const ExploreOptionsComponent = () => {
                     </li>
                     <li className={styles.container_li}>
                         <Modal
-                            title={"Agregar nueva película"}
-                            body={<AddMovieForm />}
+                            body={<AddMovieForm/>}
                             button={<AddMovieButtonComponent />}
                         />
                     </li>

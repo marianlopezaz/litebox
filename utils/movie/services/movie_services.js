@@ -15,8 +15,8 @@ export async function getMovieService(type) {
     })
 }
 
-export async function addMovieService(data) {
-    return await addMovieCrud(data).then((result) => {
+export async function addMovieService(data, onUploadProgress) {
+    return await addMovieCrud(data, onUploadProgress).then((result) => {
         if (result.success) {
             Alert.success("Película cargada correctamente", {
                 effect: "stackslide",

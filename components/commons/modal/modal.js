@@ -26,9 +26,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
  */
 
 const Modal = ({ title, body, button, disableBackdrop }) => {
-  const newBody = { ...body };
   const [show, setShow] = useState(false);
-  const [flag,setFlag] = useState();
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down(992));
 
@@ -36,9 +34,8 @@ const Modal = ({ title, body, button, disableBackdrop }) => {
     setShow(!show);
   };
 
-  useEffect(() => {
-    newBody.props = { ...body.props, closeModal: handleVisibilityModal };
-  },[body]);
+  let newBody = {...body};
+  newBody.props = {...body.props,handleClose:handleVisibilityModal}
 
   return (
     <>

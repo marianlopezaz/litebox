@@ -47,7 +47,6 @@ const LeftHeaderSection = () => {
                 </li>
                 <li className={styles.container_li} onMouseEnter={handleHover} onMouseLeave={handleHover}>
                     <Modal
-                        title={"Agregar nueva película"}
                         body={<AddMovieForm />}
                         button={<AddMovieButtonComponent />}
                     />
