@@ -9,8 +9,12 @@
   align-items: center;
   width: fit-content;
   font-size: 14px;
+  :nth-child(2){
+    font-weight: 600;
+  }
   .container_li {
     float: left;
+    transition: all .2s;
     cursor: pointer;
     .item {
       display: block;
@@ -19,6 +23,9 @@
       padding: 16px;
       text-decoration: none;
     }
+  }
+  .container_li:hover{
+    opacity: 0.8;
   }
   .logo {
     width: 100px;

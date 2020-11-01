@@ -34,7 +34,6 @@ const AddMovieForm = ({handleClose}) => {
             category: category,
             name: fields.text,
         }
-        console.log(fields);
         setUploadedMovie(MOVIE)
     }
     useEffect(() => {

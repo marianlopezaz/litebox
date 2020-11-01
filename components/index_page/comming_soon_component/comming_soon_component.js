@@ -47,7 +47,7 @@ const CommingSoonComponent = ({ mobileStyle }) => {
                         )
                     })
                         :
-                        <UpcomingSkeleton />
+                        <UpcomingSkeleton mobileStyle={mobileStyle}/>
                     }
 
                 </Col>

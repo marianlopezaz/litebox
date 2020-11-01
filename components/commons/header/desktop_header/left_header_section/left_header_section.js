@@ -5,6 +5,7 @@ import Modal from '../../../modal/modal';
 import { useState, useEffect } from 'react';
 import { useMediaQuery, useTheme } from '@material-ui/core';
 import ExploreOptionsComponent from '../explore_option_component/explore_options_component';
+import Link from "next/link";
 
 const LeftHeaderSection = () => {
 
@@ -31,7 +32,9 @@ const LeftHeaderSection = () => {
                     <img src="/logo.svg" className={styles.logo} />
                 </li>
                 <li className={styles.container_li}>
-                    <span className={styles.item}>Inicio</span>
+                    <Link href="/">
+                        <span className={styles.item}>Inicio</span>
+                    </Link>
                 </li>
                 <li className={styles.container_li}>
                     <span className={styles.item}>Series</span>
@@ -40,7 +43,9 @@ const LeftHeaderSection = () => {
                     <span className={styles.item}>Películas</span>
                 </li>
                 <li className={styles.container_li}>
-                    <span className={styles.item}>Agregados recientemente</span>
+                    <Link href="/recently">
+                        <span className={styles.item}>Agregados recientemente</span>
+                    </Link>
                 </li>
                 <li className={styles.container_li}>
                     <span className={styles.item}>Mi lista</span>
