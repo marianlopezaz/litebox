@@ -1,11 +1,13 @@
-# PROLINE NEXT.JS TEMPLATE #
+# MARIANO LOPEZ - LITEBOX CHALLENGE #
+La aplicación consiste en el desarrollo propuesto en: https://gitlab.com/egarmendia/liteflix-test-2
+Se agregó además una sección de "Agregados recientemente" para poder visualizar las películas que se cargan desde el modal.
 
-Projecto Next.js genérico.
-
-La idea del repo es proveer una base genérica de un proyecto next.js con material ui como componentes de ui, swr y axios para el fetch de la data a la api, con modales y componentes reutilizables. Cada componente tiene su doc en un comentario arriba de la inicialización del mismo.
+# ESTRUCTURA DE LA APP #
+Frontend: Desarrollado en NextJs.
+Backend: Desarrollado con ExpressJs e integrando con AWS S3 para el guardado de los documentos
 
 ## Iniciación del repo
-- Para levantar el repo, se debe clonar el mismo, pushearlo en un repo distinto y ejecutar: 
+- Para levantar el repo de manera local, se debe clonar el mismo y ejecutar: 
   ```
   $ yarn install
   ```
@@ -26,7 +28,4 @@ La idea del repo es proveer una base genérica de un proyecto next.js con materi
 * react-s-alert: libreria para menejar los alerts de error o success (https://github.com/juliancwirko/react-s-alert).
 
 
-## Deploy de la app
-- Trabajando en esto
-
-###### Desarrollado por @mariano1424 y @nicolasBaudon
+###### Desarrollado por @mariano1424
