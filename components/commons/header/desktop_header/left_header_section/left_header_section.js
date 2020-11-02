@@ -29,7 +29,9 @@ const LeftHeaderSection = () => {
         <>
             <ul className={styles.ul_container}>
                 <li className={styles.container_li}>
-                    <img src="/logo.svg" className={styles.logo} />
+                    <Link href="/">
+                        <img src="/logo.svg" className={styles.logo} />
+                    </Link>
                 </li>
                 <li className={styles.container_li}>
                     <Link href="/">
