@@ -5,7 +5,7 @@ import AddMovieForm from '../../../../movies/add_movie_form/add_movie_form';
 import Modal from '../../../modal/modal';
 import { IconButton } from '@material-ui/core';
 import { motion } from 'framer-motion';
-
+import Link from 'next/link';
 
 const list = {
     visible: {
@@ -28,7 +28,7 @@ const item = {
     hidden: { opacity: 0, x: -100 },
 };
 
-const SidebarContentComponent = () => {
+const SidebarContentComponent = ({closeModal}) => {
     return (
         <>
             <motion.span
@@ -67,20 +67,25 @@ const SidebarContentComponent = () => {
                             <img src="/icons/bell.svg" />
                         </IconButton>
                         <div className={styles.new_notification_alert}></div>
-                    Novedades
-                </motion.li>
+                        Novedades
+                    </motion.li>
                     <motion.li variants={item} className={styles.config_list_item}>
                         Series
-                </motion.li>
+                    </motion.li>
                     <motion.li variants={item} className={styles.config_list_item}>
                         Películas
-                </motion.li>
+                    </motion.li>
                     <motion.li variants={item} className={styles.config_list_item}>
                         Mi lista
-                </motion.li>
+                    </motion.li>
                     <motion.li variants={item} className={styles.config_list_item}>
                         Niños
-                </motion.li>
+                    </motion.li>
+                    <motion.li variants={item} className={styles.config_list_item} onClick={()=>closeModal(false)}>
+                        <Link href="/recently">
+                            <span className={styles.item}>Agregados recientemente</span>
+                        </Link>
+                    </motion.li>
                     <motion.li variants={item} className={styles.config_list_item}>
                         <Modal
                             body={<AddMovieForm />}
@@ -89,7 +94,7 @@ const SidebarContentComponent = () => {
                     </motion.li>
                     <motion.li variants={item} className={styles.config_list_item}>
                         Log Out
-                </motion.li>
+                    </motion.li>
                 </ul>
             </motion.span>
         </>
