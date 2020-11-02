@@ -40,11 +40,10 @@ const Recently = () => {
         <>
             {isLoading && <BackgroundLoader show={isLoading} />}
             <Row lg={12} md={12} sm={12} xs={12} className={styles.container}>
-                <div>
                     {
                         uploadadedMovies?.map((movie) => {
                             return (
-                                <Col lg={4} md={12} sm={12} xs={12} style={{ margin: '10px 0px' }}>
+                                <Col lg={4} md={12} sm={12} xs={12} style={{ margin: '10px 0px', maxHeight: '250px' }}>
                                     <div className={styles.movie_container}>
                                         <img src={movie.image} className={styles.img} />
                                         <div className={styles.info_container}>
@@ -58,7 +57,6 @@ const Recently = () => {
                             )
                         })
                     }
-                </div>
             </Row>
         </>
     )
