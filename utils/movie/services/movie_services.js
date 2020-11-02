@@ -4,13 +4,6 @@ import Alert from "react-s-alert";
 
 export async function getMovieService(type) {
     return await getMovieCrud(type).then((result) => {
-        if (result.success) {
-
-        } else {
-            Alert.error('No se encontraron películas disponibles', {
-                effect: "stackslide",
-            });
-        }
         return result;
     })
 }

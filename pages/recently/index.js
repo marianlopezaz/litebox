@@ -37,7 +37,7 @@ const Recently = () => {
     });
 
     return (
-        <>
+        <div style={{paddingTop:'100px'}}>
             {isLoading && <BackgroundLoader show={isLoading} />}
             <Row lg={12} md={12} sm={12} xs={12} className={styles.container}>
                     {
@@ -58,7 +58,7 @@ const Recently = () => {
                         })
                     }
             </Row>
-        </>
+        </div>
     )
 }
 

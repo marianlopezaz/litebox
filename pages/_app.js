@@ -60,7 +60,7 @@ function MyApp({ Component, pageProps }) {
       <MuiPickersUtilsProvider utils={DateFnsUtils} locale={esLocale}>
         <Header /> 
         <Row className="component_container">
-          <Col>
+          <Col style={{backgroundColor:'var(--black)'}}>
             <Component {...pageProps} />
           </Col>
         </Row>

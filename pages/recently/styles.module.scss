@@ -1,11 +1,10 @@
+@import "../../pages/styles/mixins.scss";
+
 .container {
-  padding-top: 100px;
   padding-right: 10%;
   padding-left: 10%;
-  max-height: 100vh;
-  overflow: auto;
-  margin-top: 80px;
-  margin-bottom: -90px;
+  max-height: 70vh;
+  background-color: var(--black);
 }
 .movie_container {
   cursor: pointer;
@@ -16,7 +15,6 @@
   padding: 20px;
   display: flex;
   margin: 10px 0px;
-  margin-bottom: 100px;
   .img {
     width: 40%;
     height: auto;
@@ -32,5 +30,11 @@
       font-weight: 600;
       text-transform: capitalize;
     }
+  }
+}
+
+@include media(md){
+  .container{
+    overflow: auto;
   }
 }
