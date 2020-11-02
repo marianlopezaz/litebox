@@ -40,24 +40,25 @@ const Recently = () => {
         <>
             {isLoading && <BackgroundLoader show={isLoading} />}
             <Row lg={12} md={12} sm={12} xs={12} className={styles.container}>
-                {
-                    uploadadedMovies?.map((movie) => {
-                        return (
-                            <Col lg={4} md={12} sm={12} xs={12} style={{margin:'10px 0px'}}>
-                                <div className={styles.movie_container}>
-                                    <img src={movie.image} className={styles.img} />
-                                    <div className={styles.info_container}>
-                                        Nombre: <span className={styles.movie_name}>{movie.name}</span>
+                <div>
+                    {
+                        uploadadedMovies?.map((movie) => {
+                            return (
+                                <Col lg={4} md={12} sm={12} xs={12} style={{ margin: '10px 0px' }}>
+                                    <div className={styles.movie_container}>
+                                        <img src={movie.image} className={styles.img} />
+                                        <div className={styles.info_container}>
+                                            Nombre: <span className={styles.movie_name}>{movie.name}</span>
                                     Categoría: <span className={styles.movie_name}>{movie.category.name}</span>
                                     Creado el día: <span className={styles.movie_name}>{formDate(movie.createdAt)}</span>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </Col>
-                        )
-                    })
-                }
-
+                                </Col>
+                            )
+                        })
+                    }
+                </div>
             </Row>
         </>
     )

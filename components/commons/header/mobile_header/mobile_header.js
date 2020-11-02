@@ -14,9 +14,11 @@ const MobileHeader = () => {
             <div className={styles.menu_container}>
                 <ResponsiveSidebar
                     title={
-                        <div style={{ display: 'flex', paddingLeft: '40px' }}>
-                            <img src="/logo.svg" className={styles.logo} />
-                        </div>
+                        <Link href="/">
+                            <div style={{ display: 'flex', paddingLeft: '40px' }}>
+                                <img src="/logo.svg" className={styles.logo} />
+                            </div>
+                        </Link>
                     }
                     button={<MenuIcon />}
                     body={<SidebarContentComponent />}

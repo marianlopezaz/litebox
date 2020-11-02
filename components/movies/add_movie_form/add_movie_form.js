@@ -1,12 +1,15 @@
 import { LinearProgress } from '@material-ui/core';
 import { useEffect, useState } from 'react';
+import { mutate } from 'swr';
 import { getCategoriesService } from '../../../utils/categories/services/categories_services';
+import config from '../../../utils/config';
 import { addMovieService } from '../../../utils/movie/services/movie_services';
 import SendMovieButtonComponent from '../../commons/buttons/send_movie_button_component/send_movie_button_component';
 import Form from '../../commons/form/form';
 import SuccessUploadForm from '../success_upload_form/success_upload_form';
 import styles from './styles.module.scss';
 
+const url = `${config.api_url}/movies`;
 const AddMovieForm = ({handleClose}) => {
     const [options, setOptions] = useState([]);
     const [succesUpload, setSuccessUpload] = useState();
@@ -21,6 +24,7 @@ const AddMovieForm = ({handleClose}) => {
             setProgress(Math.round((100 * event.loaded) / event.total));
         }).then((result) => {
             setIsLoading(false);
+            mutate(url)
             handleMovieData(fields);
             setTimeout(() => {
                 setSuccessUpload(result.success);
